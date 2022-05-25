@@ -1,0 +1,8 @@
+.logo-image{
+            width: 60px;
+            height: 60px;
+            border-radius: 40%;
+            overflow: hidden;
+            margin-top: -6px;}
+
+#map { height: 900px; }

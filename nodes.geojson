@@ -1,0 +1,478 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-ide",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2022-04-30T17:42:01Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Megastroi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          71.4527714,
+          51.1739453
+        ]
+      },
+      "id": "node/4893172936"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "Asem"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          71.4341783,
+          51.1816364
+        ]
+      },
+      "id": "node/4896693838"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "Artem"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          71.4372978,
+          51.1732356
+        ]
+      },
+      "id": "node/4897290908"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "Rakhmet"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          71.3766688,
+          51.1796462
+        ]
+      },
+      "id": "node/4900149827"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "Shelkoviy Put'"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          71.3886747,
+          51.168192
+        ]
+      },
+      "id": "node/4914343538"
+    },
+
+
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "Rakhmet"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          71.4760342,
+          51.1389675
+        ]
+      },
+      "id": "node/4924476660"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "TD Den"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          71.4180636,
+          51.1792379
+        ]
+      },
+      "id": "node/4928350081"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "Meridian"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          71.4695996,
+          51.1492422
+        ]
+      },
+      "id": "node/4931058934"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "Mereke"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          71.5138292,
+          51.1357901
+        ]
+      },
+      "id": "node/4932698343"
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "Koktal 2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          71.3361409,
+          51.1942364
+        ]
+      },
+      "id": "node/4933998230"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "TD Astykzhan 2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          71.4549574,
+          51.1826502
+        ]
+      },
+      "id": "node/4935737743"
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "Mega Silk Way"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          71.4075409,
+          51.0890223
+        ]
+      },
+      "id": "node/4965336822"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "TC Asia-City"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          71.4876106,
+          51.1577197
+        ]
+      },
+      "id": "node/4965763184"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "Keruen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            71.4252439,
+          51.1276771
+        ]
+      },
+      "id": "101"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "TRC Evrasia-3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            71.47415011752095,
+            51.14840223008893
+        ]
+      },
+      "id": "102"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "TRC Sauran"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            71.41605820074714,
+            51.11821122115565
+        ]
+      },
+      "id": "103"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "TRC Asiapark"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            71.41167458585477,
+            51.12818231262231
+        ]
+      },
+      "id": "104"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "TRC Festival Avenue"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            71.40807736681755,
+            51.12811965734798
+        ]
+      },
+      "id": "105"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "TRC Festival Avenue"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            71.40807736681755,
+            51.12811965734798
+        ]
+      },
+      "id": "105"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "TRC Khan Shatyr"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            71.4038268579223,
+            51.13250988185814
+        ]
+      },
+      "id": "106"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "TRC Sary Arka"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            71.41041435235363,
+            51.13842014786453
+        ]
+      },
+      "id": "107"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "TRC Keruen city"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            71.41406152673387,
+            51.14536758661726
+        ]
+      },
+      "id": "108"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "TRC Sine Tempore"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            71.41998093455234,
+            51.16523426233648
+        ]
+      },
+      "id": "109"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "TD Kolos"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            71.41858016204345,
+            51.177792304892755
+        ]
+      },
+      "id": "110"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "TD Alem"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            71.43557244467256,
+            51.17774266598097
+        ]
+      },
+      "id": "111"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "TC Aruzhan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            71.4827353882249,
+            51.16009966837587
+        ]
+      },
+      "id": "112"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "TD Vesta"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            71.48828297771678,
+            51.15577599305434
+        ]
+      },
+      "id": "113"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "TD Zhibek-Zholy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            71.48500727571266,
+            51.15532458402364
+        ]
+      },
+      "id": "114"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "TD Zhaily"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            71.47407458571658,
+            51.14534770377517
+        ]
+      },
+      "id": "115"
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "Central Market"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            71.46655809814368,
+            51.195251886266746
+        ]
+      },
+      "id": "116"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+
+        "name": "12 Mesyacev"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            71.46871125440516,
+            51.16392211809301
+        ]
+      },
+      "id": "117"
+    }
+
+  ]
+}

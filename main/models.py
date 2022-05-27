@@ -36,12 +36,10 @@ class Nodes(models.Model):
 
 class Shop(models.Model):
     class Meta:
-        unique_together = (('shop_id', 'branch_id'),)
         verbose_name = "Shop"
         verbose_name_plural = "Shops"
 
-    shop_id = models.IntegerField('Shop id',default=1)
-    branch_id = models.IntegerField('Branch id', default=1)
+    id = models.IntegerField('Shop id',default=1, primary_key=True)
     shop_name = models.CharField('Shop name', max_length=150)
     shop_link = models.TextField("Shop image link", max_length=25555, unique=True)
     mall_id = models.IntegerField("Mall id")
@@ -49,5 +47,21 @@ class Shop(models.Model):
     def __str__(self):
         return self.shop_name
 
+class Product(models.Model):
+    class Meta:
+        verbose_name = "Product"
+        verbose_name_plural = "Products"
+        db_table = 'main_product'
+
+    id = models.IntegerField('Product id', default=1, primary_key=True)
+    title = models.CharField('Product title', max_length=150)
+    price = models.FloatField('Product price')
+    category = models.CharField('Product category', max_length=100)
+    description = models.TextField('Product description', max_length=2000, default="None")
+    image_link = models.TextField("Product image link", max_length=25555, unique=True)
+    shop_id = models.IntegerField("Shop id", default=1)
+
+    def __str__(self):
+        return self.title
 
 

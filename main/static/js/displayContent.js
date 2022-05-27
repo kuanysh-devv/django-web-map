@@ -1,17 +1,17 @@
 var mall_id_global = ""
 
 var select_ = function() {
-  var title = $("#title").val()
-  var slug = $("#slug").val()
-  if (title != "" && slug != "") { // Fields must actually contain something
-    var data = { title:title, slug:slug };
-    var args = { type:"POST", url:"/create/", data:data };
-    $.ajax(args);
-  }
-  else {
-    // display an explanation of failure -- optional for starters
-  }
-  return false;
+  $.ajax({
+            type: 'GET',
+            url: "{% url 'shops_list' %}",
+	  		dataType: 'json',
+            success: function (response) {
+				$("#sh_item").html(response)
+            },
+            error: function (response) {
+                console.log(response)
+            }
+        })
 };
 
 function displayShops(){

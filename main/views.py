@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
+from django.db.models import Q
 import pandas as pd
 import pyodbc
 import geojson
@@ -12,6 +13,7 @@ from geojson import Feature, FeatureCollection, Point
 from django.contrib import messages
 from django.core.mail import EmailMessage, send_mail
 from gitdb.utils.encoding import force_text
+
 from . tokens import generate_token
 from diplomaproject import settings
 from django.contrib.sites.shortcuts import get_current_site
@@ -20,7 +22,7 @@ from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.utils.encoding import force_bytes
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_protect
-from .models import Places,Shop
+from .models import Places, Shop, Product
 from django.core.serializers import serialize
 
 
@@ -30,7 +32,12 @@ def places_datasets(request):
 
 
 def index(request):
+
     return render(request, 'main/index.html')
+
+
+def to_search_page(request):
+    return render(request, 'main/search_page.html')
 
 
 def signup(request):
@@ -75,4 +82,16 @@ def Print_ListView(request):
     shops = json_serializer.serialize(Shop.objects.all(), ensure_ascii=False)
     return render(request, 'index.html', {'shops': shops});
 
+
+def Print_products(request):
+    products = Product.objects.all()
+    return render(request, 'main/search_page.html', {'products_list': products});
+
+def search(request):
+    query = None
+    results=[]
+    if request.method == "GET":
+        query = request.GET.get('search')
+        results = Product.objects.filter(Q(title__icontains=query) | Q(description__icontains=query))
+    return render(request,'main/search_page.html',{'query': query, 'results': results})
 

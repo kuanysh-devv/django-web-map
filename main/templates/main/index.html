@@ -47,12 +47,18 @@
       </h5>
 
         {% if user.is_authenticated %}
+
             <nav class="my-2 my-md-0 mr-md-3">
                 <a class="p-2 text-dark" href="#">Hello {{ request.session.fname }}!</a>
             </nav>
             <nav class="my-2 my-md-0 mr-md-3">
-                <a class="p-2 text-dark" href="#" id="test">Support</a>
+                <a class="p-2 text-dark" href="{% url 'Print_products' %} " id="test">Search Page</a>
             </nav>
+            {% if user.is_staff %}
+            <nav class="my-2 my-md-0 mr-md-3">
+                <a class="p-2 text-dark" target="_blank" href="https://share.streamlit.io/renat2001/diploma_analysis/main/main.py" >Analysis</a>
+            </nav>
+             {% endif %}
             <button class="btn btn-outline-primary"><a href="/signout">SignOut</a></button>
         {% else %}
         <a class="btn btn-outline-primary" href="{% url 'register' %}" style="margin-right: 15px">Sign up</a>
@@ -81,8 +87,7 @@
           accessToken: 'pk.eyJ1IjoicmVuYXQyMDAxIiwiYSI6ImNrdXNtZGxobTBnNGYydW1mOTdkMTlwemwifQ.sb_Eehw7l4HREZ6vnUiVGA'
       }).addTo(map);
 
-      var raw_data = '{{ place|escapejs }}';
-      var m_data = '{% url 'place' %}'
+
       var mallsLayer = L.geoJSON(malls, {
         style: style,
         onEachFeature: onEachFeature

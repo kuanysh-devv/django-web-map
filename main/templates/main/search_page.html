@@ -1,0 +1,168 @@
+
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+   integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+   crossorigin=""/>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <!-- Make sure you put this AFTER Leaflet's CSS -->
+   <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+   crossorigin=""></script>
+    <title>Main page</title>
+
+    <script src="{% static "js/L.Control.Sidebar.js" %}"></script>
+    <script src="{% static "js/displayContent.js" %}"></script>
+    <script src="{% static "js/../../static/js/malls_new.js" %}"></script>
+    <style>
+        #map { height: 900px; }
+        body{
+            background-image: url("https://qazexpocongress.kz/wp-content/themes/qazexpocongress/img/expo-item-banner.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+    </style>
+    <link rel="stylesheet" href="{% static "css/mainstyle.css" %}">
+    <link rel="stylesheet" href="{% static "css/sidebar.css" %}">
+</head>
+<body>
+    <div class="fixed d-flex flex-column flex-md-row align-items-center p-1 border-bottom shadow-sm" id="bannerContainer" style="background:#FFBEA0">
+      <div class="logo-image" style="margin-right: 5px">
+          <a class="btn img-fluid logo-image" id="bar" style="background: white; margin-top: 5px;" href="{% url 'home' %}">
+              <img src="{% static "img/location.jpg" %}" class="img-fluid" style="background:#FFB593">
+          </a>
+      </div>
+      <h5 class="my-0 mr-md-auto font-weight-normal">Interactive Map by MKR</h5>
+      <h5 class="my-0 mr-md-auto font-weight-normal">
+          {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <strong>Message:</strong> {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+          {% endfor %}
+      </h5>
+
+        {% if user.is_authenticated %}
+            <nav class="my-2 my-md-0 mr-md-3">
+                <a class="p-2 text-dark" href="#">Hello {{ request.session.fname }}!</a>
+            </nav>
+            <nav class="my-2 my-md-0 mr-md-3">
+                <a class="p-2 text-dark" href="{% url 'Print_products' %}" id="test">Search Page</a>
+            </nav>
+            {% if user.is_staff %}
+            <nav class="my-2 my-md-0 mr-md-3">
+                <a class="p-2 text-dark" href="https://share.streamlit.io/renat2001/diploma_analysis/main/main.py" >Analysis</a>
+            </nav>
+             {% endif %}
+            <button class="btn btn-outline-primary"><a href="/signout">SignOut</a></button>
+        {% else %}
+        <a class="btn btn-outline-primary" href="{% url 'register' %}" style="margin-right: 15px">Sign up</a>
+        <a class="btn btn-outline-primary" href="{% url 'login' %}">Login</a>
+        {% endif %}
+    </div>
+
+    <div id="maindiv" style="width: 80%; height: 100%; margin-left:10%; background: #E9E7EA;" >
+        <form action="{% url 'search' %}" style="margin-left: 10%; align-items: center; align-content: center;">
+            <input name="search" type="text" placeholder="Search the item..." class="search input-text input-search" style="width: 80%; height: 45px;">
+            <button class="button btn btn-primary" type="submit">Search</button>
+        </form>
+        <br />
+        {% if query %}
+            <link rel="stylesheet" href="{% static "css/mainstyle.css" %}">
+            <h4 class="name" style="margin-left: 10%;">{% with results.count as total_results %}{{ total_results }}{% endwith %} Product(s) searched on query "{{ query }}" were found.</h4>
+            <div class="row" >
+            {% for c in results %}
+            <div class="col-xs-12 col-md-5" style="margin-left: 5%;">
+                        <div class="prod-info-main prod-wrap clearfix">
+                              <div class="row">
+                                   <div class="col-md-5 col-sm-12 col-xs-12">
+                                    <div class="product-image"  >
+                                     <img style="width: 100%; align-content: center; align-items: center; align-self: center; alignment: center;;max-height: 100%" src="{{ c.image_link }}" class="img-responsive">
+                               </div>
+                          </div>
+             <div class="col-md-7 col-sm-12 col-xs-12">
+                          <div class="product-deatil">
+                                       <h5 class="name">
+                                       <a href="#">
+                                           {{ c.title }}
+                                       </a>
+                                       <a href="#">
+                                       <span>{{ c.category }}</span>
+                                       </a>
+                                </h5>
+                                    <p class="price-container">
+                                     <span>{{ c.price }}</span>
+                                   </p>
+                      <span class="tag1"></span>
+           </div>
+           <div class="description">
+              <p>{{ c.description }} </p>
+           </div>
+          </div>
+          </div>
+         </div>
+
+        </div>
+         {% empty %}
+            <h4 class="name" style="margin-left: 11%;">There are no results for your query.</h4>
+        {% endfor %}
+            </div>
+
+        {% endif %}
+
+        <div class="row" >
+        {% for prod in products_list %}
+        <div class="col-xs-12 col-md-5" style="margin-left: 5%;">
+                        <div class="prod-info-main prod-wrap clearfix">
+                              <div class="row">
+                                   <div class="col-md-5 col-sm-12 col-xs-12">
+                                    <div class="product-image"  >
+                                     <img style="width: 100%; align-content: center; align-items: center; align-self: center; alignment: center;;max-height: 100%" src="{{ prod.image_link }}" class="img-responsive">
+                               </div>
+                          </div>
+             <div class="col-md-7 col-sm-12 col-xs-12">
+                          <div class="product-deatil">
+                                       <h5 class="name">
+                                       <a href="#">
+                                           {{ prod.id }}
+                                       </a>
+                                       <a href="#">
+                                       <span>{{ c.category }}</span>
+                                       </a>
+                                </h5>
+                                    <p class="price-container">
+                                     <span>{{ prod.price }}</span>
+                                   </p>
+                      <span class="tag1"></span>
+           </div>
+           <div class="description">
+              <p>{{ prod.description }}</p>
+           </div>
+          </div>
+          </div>
+         </div>
+
+        </div>
+        {% endfor %}
+
+</div>
+
+</div>
+
+
+
+
+    <script src="{% static "js/mainContent.js" %}"></script>
+
+</body>
+</html>
